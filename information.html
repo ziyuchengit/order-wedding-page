@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://7xav25.com1.z0.glb.clouddn.com/libs/seajs/3.0.0/sea-jquery.js" ></script>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta charset="UTF-8">
+    <title>创建微平台</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body, html {
+        width: 100%;
+        height: 100%;
+        background-image: url("http://7xav25.com1.z0.glb.clouddn.com/img/business/apply/bg.png");
+        background-size: cover;
+    }
+    #all,#all2{
+    width: 100%;
+    height: 100%;
+    }
+    #all {
+
+        display: block;
+    }
+
+    #all2 {
+        display: none;
+    }
+    #main,#main2{
+    width: 100%;
+    height: 90%;
+     }
+
+
+    #main2 {
+        padding-top: 30%;
+    }
+
+    .logo {
+        width: 100px;
+        height:100px;
+        margin-left: -50px;
+        margin-top:-50px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+    }
+
+    .logo img {
+        float: left;
+        width: 95px;
+        height: 95px;
+    }
+    #checked{
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+}
+    #checked p {
+        clear: both;
+        width: 100px;
+        height: 100px;
+        font-size: 25px;
+        color: grey;
+    }
+
+    .input1 {
+        width: 300px;
+        clear: both;
+        float: left;
+        height: 300px;
+        margin-top: 8%;
+        margin-left: -150px;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+    }
+
+    .input1 p {
+        height: 40px;
+        margin-top: 8px;
+    }
+
+    .input1 p input {
+        border: 2px #E83328 solid;
+        height: 37px;
+        width: 60%;
+        margin-left: 18%;
+        opacity: 0.5;
+        color: black;
+        padding-left: 3%;
+        font-size: 15px;
+        border-radius: 6px;
+    }
+    #submit1{
+        margin-top: 0px;
+    }
+    #submit1 input {
+        border: 1px #E83328 solid;
+        background-color: #E83328;
+        opacity: 1;
+        width: 64%;
+        color: white;
+        font-size: 17px;
+        padding-left: 0px;
+        position: relative;
+        top: 20%;
+    }
+
+    .input2 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        margin-top: -50px;
+        margin-left: -150px;
+        font-size: 18px;
+        line-height: 30px;
+    }
+    #remind{
+    margin-top: 10%;
+    padding-bottom: 0px;
+}
+    #remind p {
+        height: 3%;
+        color: black;
+        position: relative;
+        left: 25%;
+        display: none;
+    }
+</style>
+<body>
+<div id="all">
+    <div id="main">
+        <div class="logo">
+            <img src="http://7xav25.com1.z0.glb.clouddn.com/img/business/apply/logo.png">
+        </div>
+        <div class="input1">
+            <form action="#" method="post">
+                <p><input type="text" id="companyName" placeholder="公司名称"></p>
+
+                <p><input type="text" id="userName" placeholder="您的姓名"></p>
+
+                <p><input type="text" id="telNum" placeholder="联系方式"></p>
+
+                <p><input type="text" id="weChat" placeholder="微信号"></p>
+                <div id="remind"><p>请填写完整信息哦</p></div>
+                <p id="submit1"><input id="btnSu" type="submit" value="立即体验"></p>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div id="all2">
+    <div id="main2">
+        <div class="logo"><img src="http://7xav25.com1.z0.glb.clouddn.com/img/business/apply/logo.png"></div>
+        <div id="checked"><p>提交成功</p></div>
+        <div class="input2">
+            <b>很荣幸和您共同开启一段新的旅程</b><br><strong>我们将尽快为您服务</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        var loading = false;
+
+        var userNameEl = $('#userName');
+        var companyNameE2 = $('#companyName');
+        var telNumE3 = $('#telNum');
+        var weChatE4 = $('#weChat');
+        $('input:not(#btnSu)').focus(function () {
+            $("#remind>p").hide().text('');
+        });
+
+       var u=navigator.userAgent;
+        var isAndroid= u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+        if(isAndroid) {
+
+            $('input:eq(0)').click(function (event) {
+                event.stopPropagation();
+                $(".input1").animate({
+                    top: "24%"
+                });
+            });
+            $('input:eq(1)').click(function (event) {
+                event.stopPropagation();
+                $(".input1").animate({
+                    top: "16%"
+                });
+            });
+            $('input:eq(2)').click(function (event) {
+                event.stopPropagation();
+                $(".input1").animate({
+                    top: "8%"
+                });
+            });
+            $('input:eq(3)').click(function (event) {
+                event.stopPropagation();
+                $(".input1").animate({
+                    top: "0%"
+                });
+            })
+
+          $("body").bind("click",function(){
+              $(".input1").animate({
+                  top :"35%"
+              })
+          })
+
+       }
+
+
+
+
+        $("#btnSu").click(function (e) {
+            e.preventDefault();
+
+            if (userNameEl.val().length == 0) {
+                $("#remind>p").show().text('请输入您的姓名');
+                return;
+            } else if (companyNameE2.val().length == 0) {
+                $("#remind>p").show().text('请输入您公司的名字');
+                return;
+            } else if (telNumE3.val().length == 0) {
+                $("#remind>p").show().text('请输入您的电话号码');
+                return;
+            } else if (weChatE4.val().length == 0) {
+                $("#remind>p").show().text('请输入您的微信号码');
+                return;
+            }
+            if (loading) {
+                return;
+            }
+            loading = true;
+            var btn = $(this).text("提交中...");
+            $.ajax({
+                url: "apply/submit",
+                data: {
+                    name: userNameEl.val(),
+                    company: companyNameE2.val(),
+                    tel: telNumE3.val(),
+                    mp: weChatE4.val()
+                },
+                dataType: 'json',
+                type: 'post'
+            }).success(function (resp) {
+                if (resp.code == 0) {
+                    btn.text("已提交");
+                    $("#all").hide();
+                    $("#all2").show();
+                }
+            }).error(function () {
+                $("#remind>p").show().text('网络连接错误，请检查网络');
+            }).complete(function () {
+                loading = false
+            });
+        })
+    })
+
+</script>
+<footer class="footer">
+
+</footer>
+</body>
+</html>
